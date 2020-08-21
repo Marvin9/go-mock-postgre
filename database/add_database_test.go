@@ -27,4 +27,8 @@ func TestAddUsers(t *testing.T) {
 	if notFound {
 		t.Errorf("%v was added but was not retrieved.", newUser)
 	}
+
+	if newUserInDB.Username != newUser {
+		t.Errorf("Expected %v, got %v", newUser, newUserInDB.Username)
+	}
 }

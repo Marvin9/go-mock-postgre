@@ -46,6 +46,6 @@ func MockedDB(operation string) {
 	cmd.Env = append(cmd.Env, fmt.Sprintf("PGPASSWORD=%v", pgPassword))
 
 	if err := cmd.Run(); err != nil {
-		log.Fatalf("Error executing %v.\n%v", dbName, err)
+		log.Fatalf("Error executing %v on %v.\n%v", command, dbName, err)
 	}
 }

@@ -18,7 +18,9 @@ func AddUser(username string) error {
 	}
 	defer db.Close()
 
-	err = db.Create(Users{
+	db.AutoMigrate(&Users{})
+
+	err = db.Create(&Users{
 		Username: username,
 	}).Error
 
